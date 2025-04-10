@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的作品集</title>
+
+  <!-- ✅ Lightbox2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+  <style>
+    /* ===== 基本樣式 ===== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    .section {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* ===== 卡片樣式 ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .card img:hover {
+      transform: scale(1.05);
+    }
+    .card .title {
+      font-weight: bold;
+      font-size: 18px;
+      padding: 15px 15px 0 15px;
+    }
+    .card .description {
+      padding: 10px 15px 15px 15px;
+    }
+
+    /* ===== 關於我區塊 ===== */
+    #about img {
+      transition: transform 0.3s ease;
+    }
+    #about img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== 按鈕樣式 ===== */
+    .button-group {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .button-group a {
+      background-color: #333;
+      color: white;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .button-group a:hover {
+      background-color: #ffcc00;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    /* ===== 淡入動畫 ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      margin-top: 40px;
+      animation: fadeIn 2s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>歡迎來到我的作品集</h1>
+    <nav>
+      <a href="#works">作品</a>
+      <a href="#about">關於我</a>
+    </nav>
+  </header>
+
+  <!-- 作品展示 -->
+  <section id="works" class="section">
+    <h2>作品展示</h2>
+    <div class="gallery">
+      <div class="card">
+        <a href="images/project1.jpg" data-lightbox="gallery" data-title="這是我的第一個作品">
+          <img src="images/project1.jpg" alt="作品1">
+        </a>
+        <div class="title">作品1</div>
+        <div class="description">這是我的第一個作品</div>
+      </div>
+      <div class="card">
+        <a href="images/project2.jpg" data-lightbox="gallery" data-title="這是我的第二個作品">
+          <img src="images/project2.jpg" alt="作品2">
+        </a>
+        <div class="title">作品2</div>
+        <div class="description">這是我的第二個作品</div>
+      </div>
+      <div class="card">
+        <a href="images/project3.jpg" data-lightbox="gallery" data-title="這是我的第三個作品">
+          <img src="images/project3.jpg" alt="作品3">
+        </a>
+        <div class="title">作品3</div>
+        <div class="description">這是我的第三個作品</div>
+      </div>
+    </div>
+
+
+
+  <!-- 關於我 -->
+  <section id="about" class="section">
+    <h2>關於我</h2>
+    <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
+      <a href="images/S_73687043.jpg" data-lightbox="profile" data-title="我的大頭照">
+        <img src="images/S_73687043.jpg" alt="我的照片" style="width: 180px; height: auto; border-radius: 100px;">
+      </a>
+
+      <div>
+        <p>你好，我是 <strong>周佳德</strong>，一位熱愛設計與網頁開發的創作者。</p>
+        <p>我喜歡把想像變成畫面，用圖像與互動說故事。</p>
+
+        <h3>技能</h3>
+        <ul>
+          <li>🔧 HTML / CSS / JavaScript</li>
+          <li>🎨 Adobe Illustrator / Photoshop</li>
+          <li>🖌️ 插畫與視覺設計</li>
+        </ul>
+
+        <h3>學歷</h3>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="display: flex; align-items: center; margin-bottom: 15px;">
+            <img src="images/yuntech_logo.jpg" alt="雲科大" style="height: 30px; margin-right: 10px;">
+            2023 ~ 現今 - 國立雲林科技大學 - 資訊管理系
+          </li>
+        
+          <li style="display: flex; align-items: center; margin-bottom: 15px;">
+            <img src="images/central_logo.png" alt="中臺科大" style="height: 30px; margin-right: 10px;">
+            2019 ~ 2023 - 中臺科技大學 - 資訊管理系
+          </li>
+        
+          <li style="display: flex; align-items: center; margin-bottom: 15px;">
+            <img src="images/shinmin_logo.png" alt="新民高中" style="height: 30px; margin-right: 10px;">
+            2016 ~ 2019 - 私立新民高中 - 電子商務科
+          </li>
+        </ul>
+        
+
+        <h3>聯絡方式</h3>
+        <p>Email: ok84735132@gmail.com</p>
+        <p>IG: ok84735132</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 我的作品集 ｜聯絡方式：your@gmail.com
+  </footer>
+
+  <!-- ✅ Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+      <!-- 按鈕區塊 -->
+      <div class="button-group">
+        <a href="#about">認識我</a>
+        <a href="mailto:your@email.com">聯絡我</a>
+        <a href="#top">回到最上面 ↑</a>
+      </div>
+    </section>
+</body>
+</html>
