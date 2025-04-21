@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的作品集</title>
+  <title>個人資訊詳細</title>
 
   <!-- ✅ Lightbox2 CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <!-- ✅ Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
   <style>
-    /* ===== 基本樣式 ===== */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f7f7f7;
+      background-color: #f5f6fa;
       scroll-behavior: smooth;
     }
     header {
-      background-color: #333;
+      background-image: url('images/S__73687044.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
       color: white;
-      padding: 20px;
+      padding: 80px 20px;
       text-align: center;
       animation: fadeIn 1s ease;
     }
@@ -39,8 +43,6 @@
       margin: auto;
       animation: fadeIn 1.5s ease;
     }
-
-    /* ===== 卡片樣式 ===== */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -73,16 +75,12 @@
     .card .description {
       padding: 10px 15px 15px 15px;
     }
-
-    /* ===== 關於我區塊 ===== */
     #about img {
       transition: transform 0.3s ease;
     }
     #about img:hover {
       transform: scale(1.05);
     }
-
-    /* ===== 按鈕樣式 ===== */
     .button-group {
       margin-top: 40px;
       text-align: center;
@@ -102,13 +100,10 @@
       color: #000;
       transform: scale(1.05);
     }
-
-    /* ===== 淡入動畫 ===== */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -117,107 +112,191 @@
       margin-top: 40px;
       animation: fadeIn 2s ease;
     }
+    .skill-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+    .skill-list li {
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .skill-list li:hover {
+      background-color: #e8f0fe;
+      transform: scale(1.02);
+    }
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .about-left {
+      flex: 1 1 600px;
+    }
+    .about-right {
+      flex: 0 0 280px;
+    }
+    .certificates-box {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      font-size: 14px;
+      line-height: 1.8;
+      word-break: break-word;
+    }
+    .certificates-box h4 {
+      margin: 0 0 10px;
+    }
+    header h1 {
+     font-size: 56px;
+     font-weight: bold;
+     margin-bottom: 35px;
+    }
+    nav a {
+     font-size: 20px;
+     font-weight: bold;
+     margin: 0 25px;  /* 左右各 25px 的間距 */
+    }
+    .card {
+     max-width: 300px;
+     margin: 0 auto;
+     background-color: white;
+     border-radius: 8px;
+     overflow: hidden;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+     transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card img {
+     width: 90%;
+     margin: 0 auto;
+     display: block;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+  <header id="top">
     <h1>歡迎來到我的作品集</h1>
     <nav>
-      <a href="#works">作品</a>
-      <a href="#about">關於我</a>
+     <a href="#works">作品</a>
+     <a href="#about">關於我</a>
     </nav>
   </header>
 
-  <!-- 作品展示 -->
   <section id="works" class="section">
     <h2>作品展示</h2>
     <div class="gallery">
       <div class="card">
-        <a href="images/project1.jpg" data-lightbox="gallery" data-title="這是我的第一個作品">
-          <img src="images/project1.jpg" alt="作品1">
+        <a href="docs/database_notes.pdf" target="_blank">
+          <img src="images/db_notes_cover.jpg" alt="資料庫筆記封面">
         </a>
-        <div class="title">作品1</div>
-        <div class="description">這是我的第一個作品</div>
+        <div class="title">Access 資料庫應用與 SQL 筆記</div>
+        <div class="description">
+          整理課堂上 Access SQL 的實作語法與查詢技巧，包括樞紐分析、分組運算、期中考解析與資料表正規化。<br>
+          📄 <a href="docs/database_notes.pdf" target="_blank">⬅️閱讀完整 PDF</a>
+        </div>
       </div>
       <div class="card">
-        <a href="images/project2.jpg" data-lightbox="gallery" data-title="這是我的第二個作品">
-          <img src="images/project2.jpg" alt="作品2">
+        <a href="docs/linux_report.pdf" target="_blank">
+          <img src="images/linux_report_cover.jpg" alt="Linux報告封面">
         </a>
-        <div class="title">作品2</div>
-        <div class="description">這是我的第二個作品</div>
+        <div class="title">Linux系統實作報告｜FTP與Apache伺服器架設</div>
+        <div class="description">
+          期末報告內容包含 Linux 作業系統環境安裝、FTP 與 Apache 伺服器架設、操作紀錄與心得反思，展現基礎系統管理能力與問題解決歷程。<br>
+          📄 <a href="docs/linux_report.pdf" target="_blank">⬅️閱讀完整 PDF</a>
+        </div>
       </div>
       <div class="card">
-        <a href="images/project3.jpg" data-lightbox="gallery" data-title="這是我的第三個作品">
-          <img src="images/project3.jpg" alt="作品3">
-        </a>
-        <div class="title">作品3</div>
-        <div class="description">這是我的第三個作品</div>
-      </div>
-    </div>
-
-
-
-  <!-- 關於我 -->
-  <section id="about" class="section">
-    <h2>關於我</h2>
-    <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
-      <a href="images/S_73687043.jpg" data-lightbox="profile" data-title="我的大頭照">
-        <img src="images/S_73687043.jpg" alt="我的照片" style="width: 180px; height: auto; border-radius: 100px;">
-      </a>
-
-      <div>
-        <p>你好，我是 <strong>周佳德</strong>，一位熱愛設計與網頁開發的創作者。</p>
-        <p>我喜歡把想像變成畫面，用圖像與互動說故事。</p>
-
-        <h3>技能</h3>
-        <ul>
-          <li>🔧 HTML / CSS / JavaScript</li>
-          <li>🎨 Adobe Illustrator / Photoshop</li>
-          <li>🖌️ 插畫與視覺設計</li>
-        </ul>
-
-        <h3>學歷</h3>
-        <ul style="list-style: none; padding-left: 0;">
-          <li style="display: flex; align-items: center; margin-bottom: 15px;">
-            <img src="images/yuntech_logo.jpg" alt="雲科大" style="height: 30px; margin-right: 10px;">
-            2023 ~ 現今 - 國立雲林科技大學 - 資訊管理系
-          </li>
-        
-          <li style="display: flex; align-items: center; margin-bottom: 15px;">
-            <img src="images/central_logo.png" alt="中臺科大" style="height: 30px; margin-right: 10px;">
-            2019 ~ 2023 - 中臺科技大學 - 資訊管理系
-          </li>
-        
-          <li style="display: flex; align-items: center; margin-bottom: 15px;">
-            <img src="images/shinmin_logo.png" alt="新民高中" style="height: 30px; margin-right: 10px;">
-            2016 ~ 2019 - 私立新民高中 - 電子商務科
-          </li>
-        </ul>
-        
-
-        <h3>聯絡方式</h3>
-        <p>Email: ok84735132@gmail.com</p>
-        <p>IG: ok84735132</p>
+        <a data-fancybox href="videos/jsp.mp4">
+          <img src="images/jsp_cover.jpg" alt="JSP 系統封面圖" style="width: 100%; border-radius: 8px;">
+        </a>        
+        <div class="title">JSP 資料庫管理系統｜Tomcat + MySQL</div>
+        <div class="description">
+          使用 Apache Tomcat 架設 JSP 網站，整合 MySQL 資料庫，完成一套 CRUD 管理系統。<br>
+          <br>⬆️點上方圖片可播放操作影片🎬（查詢、新增、修改、刪除）。
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section id="about" class="section">
+    <div class="about-container">
+      <div class="about-left">
+        <h2>關於我</h2>
+        <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
+          <a href="images/S_73687043.jpg" data-lightbox="profile" data-title="我的大頭照">
+            <img src="images/S_73687043.jpg" alt="我的照片" style="width: 180px; height: auto; border-radius: 100px;">
+          </a>
+          <div>
+            <p>你好，我是 <strong>周佳德</strong>，一位喜歡設計各式各樣作品的小咖。</p>
+            <p>"人生就像一本書，處處都是故事"。</p>
+            <h3>曾接觸過的技能</h3>
+            <ul class="skill-list">
+              <li>🔧 HTML / JavaScript / Tomcat / WordPress / Arduino</li>
+              <li>🎨 Adobe Illustrator / Photoshop / viso</li>
+              <li>🗃️ Access SQL</li>
+              <li>🧩 Linux</li>
+              <li>🗂️ ERP-配銷模組</li>
+            </ul>
+            <h3>學歷</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="images/yuntech_logo.jpg" alt="雲科大" style="height: 30px; margin-right: 10px;">
+                2023 ~ 現今 - 國立雲林科技大學 - 資訊管理系
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="images/central_logo.png" alt="中臺科大" style="height: 30px; margin-right: 10px;">
+                2019 ~ 2023 - 中臺科技大學 - 資訊管理系
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="images/shinmin_logo.png" alt="新民高中" style="height: 30px; margin-right: 10px;">
+                2016 ~ 2019 - 私立新民高中 - 電子商務科
+              </li>
+            </ul>
+            <h3>聯絡方式</h3>
+            <p>Email: ok84735132@gmail.com</p>
+            <p>IG: ok84735132</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="certificates-box">
+          <h4>🏆 參賽紀錄</h4>
+          <ul>
+            <li>2023 全國性遊程設計競賽 <p>獲佳作、最佳人氣獎</p></li>
+            <li>2024 IETAC資訊教育與科技<p>應用研討會 獲 佳作論文獎</p></li>
+            <li>2024 中臺資管影片競賽 <p>獲第一名</p></li>
+            <li>2024 技職盃黑客松競賽</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="button-group">
+    <a href="#about">認識我</a>
+    <a href="mailto:ok84735132@gmail.com">聯絡我</a>
+    <a href="#top">回到最上面 ↑</a>
+  </div>
+
   <footer>
-    &copy; 2025 我的作品集 ｜聯絡方式：your@gmail.com
+    &copy; 2025 我的作品集 ｜聯絡方式：ok84735132@gmail.com
   </footer>
 
-  <!-- ✅ Lightbox2 JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <!-- ✅ Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
 
-      <!-- 按鈕區塊 -->
-      <div class="button-group">
-        <a href="#about">認識我</a>
-        <a href="mailto:your@email.com">聯絡我</a>
-        <a href="#top">回到最上面 ↑</a>
-      </div>
-    </section>
+  <!-- ✅ Fancybox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 </body>
 </html>
