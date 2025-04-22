@@ -9,8 +9,61 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
   <!-- ✅ Fancybox CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
+    /* ☁️ 雲朵載入動畫 */
+#loader {
+position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #dbe9ff 0%, #f5faff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cloud {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  animation: floatCloud 2s ease-in-out infinite;
+}
+
+.cloud-part {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cloud-part.one {
+  width: 60px;
+  height: 60px;
+  left: 0;
+  top: 0;
+}
+.cloud-part.two {
+  width: 70px;
+  height: 70px;
+  left: 30px;
+  top: -10px;
+}
+.cloud-part.three {
+  width: 50px;
+  height: 50px;
+  left: 65px;
+  top: 10px;
+}
+
+@keyframes floatCloud {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -30,9 +83,29 @@
     }
     nav a {
       color: white;
-      margin: 0 15px;
+      margin: 0 25px;
+      font-size: 20px;
+      font-weight: bold;
       text-decoration: none;
       transition: color 0.3s;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      gap: 25px;
+    }
+
+    #darkModeToggle {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
     }
     nav a:hover {
       color: #ffcc00;
@@ -49,6 +122,8 @@
       gap: 20px;
     }
     .card {
+      max-width: 300px;
+      margin: 0 auto;
       background-color: white;
       border-radius: 8px;
       overflow: hidden;
@@ -60,7 +135,8 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
     .card img {
-      width: 100%;
+      width: 90%;
+      margin: 0 auto;
       display: block;
       transition: transform 0.3s ease;
     }
@@ -156,39 +232,102 @@
       margin: 0 0 10px;
     }
     header h1 {
-     font-size: 56px;
-     font-weight: bold;
-     margin-bottom: 35px;
+      font-size: 56px;
+      font-weight: bold;
+      margin-bottom: 35px;
     }
-    nav a {
-     font-size: 20px;
-     font-weight: bold;
-     margin: 0 25px;  /* 左右各 25px 的間距 */
-    }
-    .card {
-     max-width: 300px;
-     margin: 0 auto;
-     background-color: white;
-     border-radius: 8px;
-     overflow: hidden;
-     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-     transition: transform 0.3s, box-shadow 0.3s;
+     /* 🌙 深色模式樣式 */
+    body.dark-mode {
+      background-color: #313131;
+      color: #e0e0e0;
     }
 
-    .card img {
-     width: 90%;
-     margin: 0 auto;
-     display: block;
+    body.dark-mode header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                    url('images/night_view_header.jpg'); 
+      background-size: cover;
+      background-position: center 55%;
+      background-repeat: no-repeat;
+      color: white;
+    }
+
+    body.dark-mode .card {
+      background-color: #1f1f1f;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+    }
+
+    body.dark-mode .card .description a {
+      color: #ffcc00;
+    }
+
+    body.dark-mode nav a {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode footer {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode .certificates-box,
+    body.dark-mode .skill-list li {
+      background-color: #2c2c2c;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .button-group a {
+      background-color: #444;
+      color: #fff;
+    }
+
+    body.dark-mode .button-group a:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    /* 🌞 淺色模式下按鈕樣式 */
+    #darkModeToggle {
+      font-size: 18px;
+      background: none;
+      border: none;
+      color: #111;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    /* 🌙 深色模式下反轉文字顏色 */
+    .dark-mode #darkModeToggle {
+      color: #ffffff;
+    }
+    /* 淺色模式 hover */
+    body:not(.dark-mode) #darkModeToggle:hover {
+      color: #0077cc;
+    }
+
+    /* 深色模式 hover */
+    body.dark-mode #darkModeToggle:hover {
+      color: #ffcc00;
     }
   </style>
 </head>
 <body>
-
+    <!-- 載入畫面 -->
+    <div id="loader">
+      <div class="cloud">
+        <div class="cloud-part one"></div>
+        <div class="cloud-part two"></div>
+        <div class="cloud-part three"></div>
+      </div>
+    </div>
+  <body id="body"></body>
   <header id="top">
     <h1>歡迎來到我的作品集</h1>
     <nav>
-     <a href="#works">作品</a>
-     <a href="#about">關於我</a>
+      <div class="nav-left">
+        <a href="#works">作品</a>
+        <a href="#about">關於我</a>
+        <a href="transcript.html" target="_blank">歷史成績單</a>
+      </div>
+      <button id="darkModeToggle">🌙 深色模式</button>
     </nav>
   </header>
 
@@ -275,7 +414,8 @@
             <li>2023 全國性遊程設計競賽 <p>獲佳作、最佳人氣獎</p></li>
             <li>2024 IETAC資訊教育與科技<p>應用研討會 獲 佳作論文獎</p></li>
             <li>2024 中臺資管影片競賽 <p>獲第一名</p></li>
-            <li>2024 技職盃黑客松競賽</li>
+            <li>2024 技職盃黑客松競賽</li><br>
+            <li>2025 第36屆國際資訊管理<p>學術研討會(ICIM)</p></li>
           </ul>
         </div>
       </div>
@@ -297,6 +437,45 @@
 
   <!-- ✅ Fancybox JS -->
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+  
+      // 淡出動畫
+      loader.style.transition = "opacity 1.5s ease";
+      loader.style.opacity = "0";
+  
+      // 完全隱藏元素
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 600); // 時間跟上面 transition 時間一致
+    });
+  
+    // 備援：最多顯示 2.5 秒（避免卡住）
+    setTimeout(() => {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = "0";
+      loader.style.display = "none";
+    }, 2500);
+      // 深色模式切換
+  const toggleBtn = document.getElementById("darkModeToggle");
+  const body = document.getElementById("body");
 
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    const isDark = body.classList.contains("dark-mode");
+    toggleBtn.textContent = isDark ? "☀️ 淺色模式" : "🌙 深色模式";
+    localStorage.setItem("preferredTheme", isDark ? "dark" : "light");
+  });
+
+  // 初始載入：根據 localStorage 設定深色或淺色
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("preferredTheme");
+    if (savedTheme === "dark") {
+      body.classList.add("dark-mode");
+      toggleBtn.textContent = "☀️ 淺色模式";
+    }
+  });
+  </script>
 </body>
 </html>
