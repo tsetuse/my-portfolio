@@ -286,13 +286,37 @@ position: fixed;
     }
     /* 🌞 淺色模式下按鈕樣式 */
     #darkModeToggle {
-      font-size: 18px;
-      background: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
       border: none;
-      color: #111;
+      border-radius: 50px;
+      width: auto;
+      height: 48px;
+      font-size: 20px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 9999;
     }
+
+  #darkModeToggle:hover {
+      background-color: #ffcc00;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+  body.dark-mode #darkModeToggle {
+      background-color: #444;
+      color: #fff;
+  }
 
     /* 🌙 深色模式下反轉文字顏色 */
     .dark-mode #darkModeToggle {
@@ -327,6 +351,26 @@ position: fixed;
     margin-top: 10px;
   }
 }
+@media (max-width: 768px) {
+  #darkModeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    transform: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    z-index: 9999;
+  }
+
+  .dark-mode #darkModeToggle {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffcc00;
+  }
+}
   </style>
 </head>
 <body>
@@ -347,7 +391,6 @@ position: fixed;
         <a href="#about">關於我</a>
         <a href="transcript.html" target="_blank">歷史成績單</a>
       </div>
-      <button id="darkModeToggle">🌙 深色模式</button>
     </nav>
   </header>
 
@@ -447,7 +490,7 @@ position: fixed;
     <a href="mailto:ok84735132@gmail.com">聯絡我</a>
     <a href="#top">回到最上面 ↑</a>
   </div>
-
+  <button id="darkModeToggle">🌙 </button>
   <footer>
     &copy; 2025 我的作品集 ｜聯絡方式：ok84735132@gmail.com
   </footer>
@@ -484,7 +527,7 @@ position: fixed;
   toggleBtn.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
     const isDark = body.classList.contains("dark-mode");
-    toggleBtn.textContent = isDark ? "☀️ 淺色模式" : "🌙 深色模式";
+    toggleBtn.textContent = isDark ? "☀️" : "🌙";
     localStorage.setItem("preferredTheme", isDark ? "dark" : "light");
   });
 
@@ -493,7 +536,7 @@ position: fixed;
     const savedTheme = localStorage.getItem("preferredTheme");
     if (savedTheme === "dark") {
       body.classList.add("dark-mode");
-      toggleBtn.textContent = "☀️ 淺色模式";
+      toggleBtn.textContent = "☀️";
     }
   });
   </script>
