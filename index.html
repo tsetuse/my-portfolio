@@ -5,64 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>個人資訊詳細</title>
 
-  <!-- ✅ Lightbox2 CSS -->
+  <!-- Lightbox2 CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-  <!-- ✅ Fancybox CSS -->
+  <!-- Fancybox CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
     /* ☁️ 雲朵載入動畫 */
-#loader {
-position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #dbe9ff 0%, #f5faff 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    #loader {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #dbe9ff 0%, #f5faff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.cloud {
-  position: relative;
-  width: 120px;
-  height: 60px;
-  animation: floatCloud 2s ease-in-out infinite;
-}
+    .cloud {
+      position: relative;
+      width: 120px;
+      height: 60px;
+      animation: floatCloud 2s ease-in-out infinite;
+    }
 
-.cloud-part {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+    .cloud-part {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
 
-.cloud-part.one {
-  width: 60px;
-  height: 60px;
-  left: 0;
-  top: 0;
-}
-.cloud-part.two {
-  width: 70px;
-  height: 70px;
-  left: 30px;
-  top: -10px;
-}
-.cloud-part.three {
-  width: 50px;
-  height: 50px;
-  left: 65px;
-  top: 10px;
-}
+    .cloud-part.one { width: 60px; height: 60px; left: 0; top: 0; }
+    .cloud-part.two { width: 70px; height: 70px; left: 30px; top: -10px; }
+    .cloud-part.three { width: 50px; height: 50px; left: 65px; top: 10px; }
 
-@keyframes floatCloud {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+    @keyframes floatCloud {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    nav a.fade-in-up:nth-child(1) { animation-delay: 0.2s; }
+    nav a.fade-in-up:nth-child(2) { animation-delay: 0.4s; }
+    nav a.fade-in-up:nth-child(3) { animation-delay: 0.6s; }
 
     body {
       font-family: Arial, sans-serif;
@@ -79,7 +84,13 @@ position: fixed;
       color: white;
       padding: 80px 20px;
       text-align: center;
-      animation: fadeIn 1s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+    header h1 {
+      font-size: 56px;
+      font-weight: bold;
+      margin-bottom: 35px;
+      animation: fadeInUp 1s ease forwards;
     }
     nav a {
       color: white;
@@ -95,12 +106,13 @@ position: fixed;
       align-items: center;
       padding: 0 20px;
     }
-
     .nav-left {
       display: flex;
       gap: 25px;
     }
-
+    .nav-left a {
+      animation: fadeInUp 1s ease forwards;
+    }
     #darkModeToggle {
       position: absolute;
       right: 20px;
@@ -389,6 +401,7 @@ position: fixed;
       <div class="nav-left">
         <a href="#works">作品</a>
         <a href="#about">關於我</a>
+        <a href="#certificates">證照</a>
         <a href="transcript.html" target="_blank">歷史成績單</a>
       </div>
     </nav>
@@ -466,7 +479,6 @@ position: fixed;
             </ul>
             <h3>聯絡方式</h3>
             <p>Email: ok84735132@gmail.com</p>
-            <p>IG: ok84735132</p>
           </div>
         </div>
       </div>
@@ -474,11 +486,20 @@ position: fixed;
         <div class="certificates-box">
           <h4>🏆 參賽紀錄</h4>
           <ul>
-            <li>2023 全國性遊程設計競賽 <p>獲佳作、最佳人氣獎</p></li>
-            <li>2024 IETAC資訊教育與科技<p>應用研討會 獲 佳作論文獎</p></li>
-            <li>2024 中臺資管影片競賽 <p>獲第一名</p></li>
+            <li>2023 全國性遊程設計競賽 <p>(獲 佳作、最佳人氣獎)</p></li>
+            <li>2024 IETAC資訊教育與科技<p>應用研討會 (獲 佳作論文獎)</p></li>
+            <li>2024 中臺資管影片競賽 <p>(獲 第一名)</p></li>
             <li>2024 技職盃黑客松競賽</li><br>
             <li>2025 第36屆國際資訊管理<p>學術研討會(ICIM)</p></li>
+          </ul>
+        </div><br>
+        <div class="certificates-box" id="certificates">
+          <h4>📚 證照</h4>
+          <ul>
+            <li>丙級電腦軟體應用技術士</li>
+            <li>物聯網智慧應用及技術</li>
+            <li>ERP軟體顧問-配銷模組</li>
+            <li>BAP商務專業應用能力國際認證</li>
           </ul>
         </div>
       </div>
