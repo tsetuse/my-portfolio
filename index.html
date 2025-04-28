@@ -133,6 +133,13 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+    .gallery-left {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      align-items: start;
+    }
     .card {
       max-width: 300px;
       margin: 0 auto;
@@ -147,10 +154,12 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
     .card img {
-      width: 90%;
-      margin: 0 auto;
-      display: block;
-      transition: transform 0.3s ease;
+    width: 90%;
+    max-height: 400px; /* ⭐ 新增這行，限制圖片最高250px */
+    margin: 0 auto;
+    display: block;
+    object-fit: cover; /* 補充，讓圖片不變形 */
+    transition: transform 0.3s ease;
     }
     .card img:hover {
       transform: scale(1.05);
@@ -408,8 +417,21 @@
   </header>
 
   <section id="works" class="section">
-    <h2>作品展示</h2>
+    <h2>作品展示-大學</h2>
     <div class="gallery">
+      <!-- 大學作品1 -->
+      <div class="card">
+        <a href="docs/University_Topics.pdf" target="_blank">
+          <img src="images/university_project_cover.jpg" alt="大學專題封面圖">
+        </a>
+        <div class="title">大學專題｜比較分類技術於骨髓移植之研究</div>
+        <div class="description">
+          本研究以資料探勘技術（C4.5決策樹、貝氏分類、類神經網路）分析骨髓移植資料集，建構預測模型以協助醫療診斷。<br>
+          📄 <a href="docs/University_Topics.pdf" target="_blank">⬅️閱讀完整 PDF</a>
+        </div>
+      </div>
+  
+      <!-- 大學作品2 -->
       <div class="card">
         <a href="docs/database_notes.pdf" target="_blank">
           <img src="images/db_notes_cover.jpg" alt="資料庫筆記封面">
@@ -420,6 +442,8 @@
           📄 <a href="docs/database_notes.pdf" target="_blank">⬅️閱讀完整 PDF</a>
         </div>
       </div>
+  
+      <!-- 大學作品3 -->
       <div class="card">
         <a href="docs/linux_report.pdf" target="_blank">
           <img src="images/linux_report_cover.jpg" alt="Linux報告封面">
@@ -430,17 +454,47 @@
           📄 <a href="docs/linux_report.pdf" target="_blank">⬅️閱讀完整 PDF</a>
         </div>
       </div>
+    </div>
+  
+    <h2 style="margin-top: 60px;">作品展示-研究所</h2>
+    <div class="gallery-left">
+      <!-- 研究所作品1 -->
+      <div class="card">
+        <a href="docs/DS_JiaDe_Full.pdf" target="_blank">
+          <img src="images/DS_JiaDe_Full_cover.jpg" alt="ICIM研討會投稿">
+        </a>
+        <div class="title">ICIM 2025投稿｜OTT平台支付模式創新研究</div>
+        <div class="description">
+          研討會論文發表，探討OTT串流平台結合微交易與訂閱制的支付創新，整合TPB與ECT模型分析使用者行為。<br>
+          📄 <a href="docs/DS_JiaDe_Full.pdf" target="_blank">⬅️閱讀完整 PDF</a>
+        </div>
+      </div>
+
+      <!-- 研究所作品2 -->
       <div class="card">
         <a data-fancybox href="https://github.com/tsetuse/my-portfolio/releases/download/v1.0/jsp.mp4">
-          <img src="images/jsp_cover.jpg" alt="JSP 系統封面圖" style="width: 100%; border-radius: 8px;">
-        </a>        
+          <img src="images/jsp_cover.jpg" alt="JSP 系統封面圖">
+        </a>
         <div class="title">JSP 資料庫管理系統｜Tomcat + MySQL</div>
         <div class="description">
           使用 Apache Tomcat 架設 JSP 網站，整合 MySQL 資料庫，完成一套 CRUD 管理系統。<br>
-          <br>⬆️點上方圖片可播放操作影片🎬（查詢、新增、修改、刪除）。
+          ⬆️ 點上方圖片可播放操作影片🎬（查詢、新增、修改、刪除）。
+        </div>
+      </div>
+    
+      <!-- 研究所作品3 -->
+      <div class="card">
+        <a href="docs/blacksong.pdf" target="_blank">
+          <img src="images/blacksong_cover.jpg" alt="黑松客競賽提案">
+        </a>
+        <div class="title">黑松客競賽-台灣電力APP｜永續能源功能提案</div>
+        <div class="description">
+          提出永續能源使用推廣、即時用電提醒設計，並於黑客松比賽中發表。<br>
+          📄 <a href="docs/blacksong.pdf" target="_blank">⬅️閱讀完整提案 PDF</a><br>
         </div>
       </div>
     </div>
+    
   </section>
 
   <section id="about" class="section">
