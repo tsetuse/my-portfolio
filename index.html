@@ -155,10 +155,10 @@
     }
     .card img {
     width: 90%;
-    max-height: 400px; 
+    max-height: 400px; /* ⭐ 新增這行，限制圖片最高250px */
     margin: 0 auto;
     display: block;
-    object-fit: cover; 
+    object-fit: cover; /* 補充，讓圖片不變形 */
     transition: transform 0.3s ease;
     }
     .card img:hover {
@@ -372,6 +372,7 @@
     margin-top: 10px;
   }
 }
+
 @media (max-width: 768px) {
   #darkModeToggle {
     position: fixed;
@@ -420,6 +421,69 @@
     </nav>
   </header>
 
+
+  <section id="about" class="section">
+    <div class="about-container">
+      <div class="about-left">
+        <h2>關於我</h2>
+        <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
+          <a href="images/S_73687043.jpg" data-lightbox="profile" data-title="我的大頭照">
+            <img src="images/S_73687043.jpg" alt="我的照片" style="width: 200px; height: auto; border-radius: 100px;">
+          </a>
+          <div>
+            <p>你好，我是 <strong>周佳德</strong>，一位正在練習設計作品的學生。</p>
+            <p>"人生就像一本書，處處都是故事"。</p>
+            <h3>曾接觸過的技能</h3>
+            <ul class="skill-list">
+              <li>🔧 HTML / JavaScript / Tomcat / WordPress / Arduino</li>
+              <li>🎨 Adobe Illustrator / Photoshop / viso</li>
+              <li>🗃️ Access SQL</li>
+              <li>🧩 Linux</li>
+              <li>🗂️ ERP-配銷模組</li>
+            </ul>
+            <h3>學歷</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="images/yuntech_logo.jpg" alt="雲科大" style="height: 30px; margin-right: 10px;">
+                2023 ~ 現今 - 國立雲林科技大學 - 資訊管理系
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="images/central_logo.png" alt="中臺科大" style="height: 30px; margin-right: 10px;">
+                2019 ~ 2023 - 中臺科技大學 - 資訊管理系
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="images/shinmin_logo.png" alt="新民高中" style="height: 30px; margin-right: 10px;">
+                2016 ~ 2019 - 私立新民高中 - 電子商務科
+              </li>
+            </ul>
+            <h3>聯絡方式</h3>
+            <p>Email: ok84735132@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="certificates-box">
+          <h4>🏆 參賽紀錄</h4>
+          <ul>
+            <li>2023 全國性遊程設計競賽 <p>(獲 佳作、最佳人氣獎)</p></li>
+            <li>2024 IETAC資訊教育與科技<p>應用研討會 (獲 佳作論文獎)</p></li>
+            <li>2024 中臺資管影片競賽 <p>(獲 第一名)</p></li>
+            <li>2024 技職盃黑客松競賽</li><br>
+            <li>2025 第36屆國際資訊管理<p>學術研討會(ICIM)</p></li>
+          </ul>
+        </div><br>
+        <div class="certificates-box" id="certificates">
+          <h4>📚 證照</h4>
+          <ul>
+            <li>丙級電腦軟體應用技術士</li>
+            <li>物聯網智慧應用及技術</li>
+            <li>ERP軟體顧問-配銷模組</li>
+            <li>BAP商務專業應用能力國際認證</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="works" class="section">
     <h2>作品展示-大學</h2>
     <div class="gallery">
@@ -501,69 +565,6 @@
     
   </section>
 
-  <section id="about" class="section">
-    <div class="about-container">
-      <div class="about-left">
-        <h2>關於我</h2>
-        <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
-          <a href="images/S_73687043.jpg" data-lightbox="profile" data-title="我的大頭照">
-            <img src="images/S_73687043.jpg" alt="我的照片" style="width: 200px; height: auto; border-radius: 100px;">
-          </a>
-          <div>
-            <p>你好，我是 <strong>周佳德</strong>，一位正在練習設計作品的學生。</p>
-            <p>"人生就像一本書，處處都是故事"。</p>
-            <h3>曾接觸過的技能</h3>
-            <ul class="skill-list">
-              <li>🔧 HTML / JavaScript / Tomcat / WordPress / Arduino</li>
-              <li>🎨 Adobe Illustrator / Photoshop / viso</li>
-              <li>🗃️ Access SQL</li>
-              <li>🧩 Linux</li>
-              <li>🗂️ ERP-配銷模組</li>
-            </ul>
-            <h3>學歷</h3>
-            <ul style="list-style: none; padding-left: 0;">
-              <li style="display: flex; align-items: center; margin-bottom: 15px;">
-                <img src="images/yuntech_logo.jpg" alt="雲科大" style="height: 30px; margin-right: 10px;">
-                2023 ~ 現今 - 國立雲林科技大學 - 資訊管理系
-              </li>
-              <li style="display: flex; align-items: center; margin-bottom: 15px;">
-                <img src="images/central_logo.png" alt="中臺科大" style="height: 30px; margin-right: 10px;">
-                2019 ~ 2023 - 中臺科技大學 - 資訊管理系
-              </li>
-              <li style="display: flex; align-items: center; margin-bottom: 15px;">
-                <img src="images/shinmin_logo.png" alt="新民高中" style="height: 30px; margin-right: 10px;">
-                2016 ~ 2019 - 私立新民高中 - 電子商務科
-              </li>
-            </ul>
-            <h3>聯絡方式</h3>
-            <p>Email: ok84735132@gmail.com</p>
-          </div>
-        </div>
-      </div>
-      <div class="about-right">
-        <div class="certificates-box">
-          <h4>🏆 參賽紀錄</h4>
-          <ul>
-            <li>2023 全國性遊程設計競賽 <p>(獲 佳作、最佳人氣獎)</p></li>
-            <li>2024 IETAC資訊教育與科技<p>應用研討會 (獲 佳作論文獎)</p></li>
-            <li>2024 中臺資管影片競賽 <p>(獲 第一名)</p></li>
-            <li>2024 技職盃黑客松競賽</li><br>
-            <li>2025 第36屆國際資訊管理<p>學術研討會(ICIM)</p></li>
-          </ul>
-        </div><br>
-        <div class="certificates-box" id="certificates">
-          <h4>📚 證照</h4>
-          <ul>
-            <li>丙級電腦軟體應用技術士</li>
-            <li>物聯網智慧應用及技術</li>
-            <li>ERP軟體顧問-配銷模組</li>
-            <li>BAP商務專業應用能力國際認證</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <div class="button-group">
     <a href="#about">認識我</a>
     <a href="mailto:ok84735132@gmail.com">聯絡我</a>
@@ -593,7 +594,7 @@
       }, 600); // 時間跟上面 transition 時間一致
     });
   
-    // 最多顯示 2.5 秒
+    // 備援：最多顯示 2.5 秒（避免卡住）
     setTimeout(() => {
       const loader = document.getElementById("loader");
       loader.style.opacity = "0";
@@ -610,7 +611,7 @@
     localStorage.setItem("preferredTheme", isDark ? "dark" : "light");
   });
 
-  // 根據 localStorage 設定深色或淺色
+  // 初始載入：根據 localStorage 設定深色或淺色
   window.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("preferredTheme");
     if (savedTheme === "dark") {
