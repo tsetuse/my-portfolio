@@ -155,10 +155,10 @@
     }
     .card img {
     width: 90%;
-    max-height: 400px; /* ⭐ 新增這行，限制圖片最高250px */
+    max-height: 400px; 
     margin: 0 auto;
     display: block;
-    object-fit: cover; /* 補充，讓圖片不變形 */
+    object-fit: cover; 
     transition: transform 0.3s ease;
     }
     .card img:hover {
@@ -593,7 +593,7 @@
       }, 600); // 時間跟上面 transition 時間一致
     });
   
-    // 備援：最多顯示 2.5 秒（避免卡住）
+    // 最多顯示 2.5 秒
     setTimeout(() => {
       const loader = document.getElementById("loader");
       loader.style.opacity = "0";
@@ -610,7 +610,7 @@
     localStorage.setItem("preferredTheme", isDark ? "dark" : "light");
   });
 
-  // 初始載入：根據 localStorage 設定深色或淺色
+  // 根據 localStorage 設定深色或淺色
   window.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("preferredTheme");
     if (savedTheme === "dark") {
