@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自傳頁面</title>
+  <style>
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f6fa;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-image: url('images/S__73687044.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .content {
+      max-width: 960px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .autobio-img {
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .btn-back:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-left {
+      display: flex;
+       gap: 25px;
+    }
+
+    nav a {
+      color: rgb(255, 255, 255);
+      background-color: rgba(17, 17, 18, 0.2);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      background-color: rgba(6, 6, 6, 0.2); 
+      color: #ffcc00; 
+      transform: scale(1.15); 
+    }
+    .autobio-img:hover {
+      transform: scale(1.03);
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>我的自傳</h1>
+    <nav>
+        <div class="nav-left">
+          <a href="index.html#works">作品</a>
+          <a href="index.html#about">關於我</a>
+          <a href="index.html#certificates">證照</a>
+          <a href="transcript.html">歷年成績單</a>
+          <a href="transcript_1.html">自傳</a>
+          <a href="index.html">回到首頁</a>
+        </div>
+      </nav>
+  </header>
+
+  <div class="content">
+    <p>以下是我的個人自傳圖片：</p>
+    
+    <!-- 顯示自傳圖片 -->
+    <a href="images/autobiography.png" data-fancybox="autobio" data-caption="我的自傳">
+        <img class="autobio-img" src="images/autobiography.png" alt="我的自傳" />
+      </a>
+
+    <p>
+      <a class="btn-back" href="index.html">← 回到首頁</a>
+    </p>
+  </div>
+
+</body>
+</html>
