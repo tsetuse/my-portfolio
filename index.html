@@ -163,10 +163,10 @@
     }
     .card img {
     width: 90%;
-    max-height: 400px; /* ⭐ 新增這行，限制圖片最高250px */
+    max-height: 400px; 
     margin: 0 auto;
     display: block;
-    object-fit: cover; /* 補充，讓圖片不變形 */
+    object-fit: cover; 
     transition: transform 0.3s ease;
     }
     .card img:hover {
@@ -421,10 +421,11 @@
     <h1>歡迎來到我的作品集</h1>
     <nav>
       <div class="nav-left">
-        <a href="#works">作品</a>
-        <a href="#about">關於我</a>
-        <a href="#certificates">證照</a>
-        <a href="transcript.html" target="_blank">歷年成績單</a>
+        <a href="index.html#works">作品</a>
+        <a href="index.html#about">關於我</a>
+        <a href="index.html#certificates">證照</a>
+        <a href="transcript.html">歷年成績單</a>
+        <a href="transcript_1.html">自傳</a>
       </div>
     </nav>
   </header>
@@ -439,8 +440,8 @@
             <img src="images/S_73687043.jpg" alt="我的照片" style="width: 200px; height: auto; border-radius: 100px;">
           </a>
           <div>
-            <p>你好，我是 <strong>周佳德</strong>，一位正在練習設計作品的學生。</p>
-            <p>"人生就像一本書，處處都是故事"。</p>
+            <p>您好，我的名字叫做 <strong>周佳德</strong>，一位正在練習設計作品的學生。</p>
+            <p>"人生就像一本書，處處都是故事"</p>
             <h3>曾接觸過的技能</h3>
             <ul class="skill-list">
               <li>🔧 HTML / JavaScript / Tomcat / WordPress / Arduino</li>
@@ -466,7 +467,7 @@
             </ul><br>
             <h3>聯絡方式</h3>
             <p>Email: ok84735132@gmail.com</p>
-            <p>電話：0988-420-503</p>
+            <p>電話: 0988-420-503</p>
           </div>
         </div>
       </div>
@@ -594,22 +595,23 @@
       const loader = document.getElementById("loader");
   
       // 淡出動畫
-      loader.style.transition = "opacity 1.5s ease";
+      loader.style.transition = "opacity 2s ease";
       loader.style.opacity = "0";
   
       // 完全隱藏元素
       setTimeout(() => {
         loader.style.display = "none";
-      }, 600); // 時間跟上面 transition 時間一致
+      }, 2000); 
     });
   
-    // 備援：最多顯示 2.5 秒（避免卡住）
+    // 備援：最多顯示  秒（避免卡住）
     setTimeout(() => {
       const loader = document.getElementById("loader");
       loader.style.opacity = "0";
       loader.style.display = "none";
-    }, 2500);
-      // 深色模式切換
+    }, 5000);
+
+    // 深色模式切換
   const toggleBtn = document.getElementById("darkModeToggle");
   const body = document.getElementById("body");
 
