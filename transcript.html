@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>歷年成績單</title>
+  <title>歷史成績單</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
   <style>
@@ -73,11 +73,50 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-left {
+      display: flex;
+       gap: 25px;
+    }
+
+    nav a {
+      color: rgb(255, 255, 255);
+      background-color: rgba(17, 17, 18, 0.2);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      background-color: rgba(6, 6, 6, 0.2); 
+      color: #ffcc00; 
+      transform: scale(1.15); 
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>歷史成績單</h1>
+    <h1>歷年成績單</h1>
+    <nav>
+      <div class="nav-left">
+        <a href="index.html#works">作品</a>
+        <a href="index.html#about">關於我</a>
+        <a href="index.html#certificates">證照</a>
+        <a href="transcript.html">歷年成績單</a>
+        <a href="transcript_1.html">自傳</a>
+        <a href="index.html">回到首頁</a>
+      </div>
+    </nav>
   </header>
 
   <div class="container">
