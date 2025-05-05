@@ -96,9 +96,72 @@
       transform: scale(1.03);
       transition: transform 0.3s ease;
     }
+    .hover-sidebar {
+    position: fixed;
+    top: 450px;
+    left: -160px;
+    width: 160px;
+    background-color: #333;
+    padding: 10px 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 9999;
+  }
+  .hover-sidebar a {
+  color: white; /* 將文字改為白色 */
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  }
+
+.hover-sidebar a:hover {
+  background-color: #555;
+  color: #ffcc00; /* 滑鼠移過去時變亮黃 */
+}
+  .hover-sidebar.open {
+    left: 0;
+  }
+
+  .hover-tab {
+    position: fixed;
+    top: 400px;
+    left: 0;
+    background-color: #444;
+    color: white;
+    padding: 10px 12px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 20px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+  .hover-tab:hover {
+    background-color: #ffcc00;
+    color: black;
+  }
+  @media (max-width: 768px) {
+    .hover-tab {
+      display: none;
+  }
+}
   </style>
 </head>
 <body>
+  <div class="hover-tab">☰</div>
+  <div class="hover-sidebar">
+    <a href="index.html">🏠 首頁</a><br>
+    <a href="index.html#about">🙋‍♂️ 關於我</a><br>
+    <a href="index.html#works">📂 作品</a><br>
+    <a href="index.html#certificates">🏅 證照/競賽</a><br>
+    <a href="transcript.html">🧾 歷年成績單</a><br>
+    <a href="transcript_1.html">📝 自傳</a><br>
+  </div>
   <header>
     <h1>我的自傳</h1>
     <nav>
@@ -114,7 +177,7 @@
   </header>
 
   <div class="content">
-    <p>以下是我的個人自傳圖片：</p>
+    <p>個人自傳：</p>
     
     <!-- 顯示自傳圖片 -->
     <a href="images/autobiography.png" data-fancybox="autobio" data-caption="我的自傳">
@@ -126,5 +189,16 @@
     </p>
   </div>
 
+
+<script>
+  // 點擊 ☰ 展開/收合側邊欄
+  const hoverTab = document.querySelector('.hover-tab');
+  const sidebar = document.querySelector('.hover-sidebar');
+
+  hoverTab.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+
+});
+</script>
 </body>
 </html>
