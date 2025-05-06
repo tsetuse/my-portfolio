@@ -21,9 +21,40 @@
       background-position: center 40%;
       background-repeat: no-repeat;
       color: white;
-      padding: 80px 20px;
+      padding: 10vh 20px 80px;
       text-align: center;
       animation: fadeIn 1s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      margin-top: 2vh;
+    }
+
+    .nav-left {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: rgb(255, 255, 255);
+      background-color: rgba(17, 17, 18, 0.2);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      background-color: rgba(6, 6, 6, 0.2); 
+      color: #ffcc00; 
+      transform: scale(1.15); 
     }
 
     .container {
@@ -73,90 +104,98 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
-    }
 
-    .nav-left {
-      display: flex;
-       gap: 25px;
-    }
-
-    nav a {
-      color: rgb(255, 255, 255);
-      background-color: rgba(17, 17, 18, 0.2);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      margin: 0 10px;
-    }
-
-    nav a:hover {
-      background-color: rgba(6, 6, 6, 0.2); 
-      color: #ffcc00; 
-      transform: scale(1.15); 
-    }
     .hover-sidebar {
-    position: fixed;
-    top: 450px;
-    left: -160px;
-    width: 160px;
-    background-color: #333;
-    padding: 10px 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-    transition: left 0.3s ease;
-    z-index: 9999;
-   }
-  .hover-sidebar a {
-   color: white; /* 將文字改為白色 */
-   display: block;
-   padding: 5px 10px;
-   text-decoration: none;
-   font-weight: bold;
-   transition: background-color 0.3s, color 0.3s;
-   }
+      position: fixed;
+      top: 0;
+      left: -160px;
+      width: 160px;
+      height: 100vh;
+      background-color: #333;
+      padding: 10px 0;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      z-index: 9999;
+    }
 
-  .hover-sidebar a:hover {
-   background-color: #555;
-   color: #ffcc00; /* 滑鼠移過去時變亮黃 */
-  }
-  .hover-sidebar.open {
-    left: 0;
-  }
+    .hover-sidebar a {
+      color: white;
+      display: block;
+      padding: 5px 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-  .hover-tab {
-    position: fixed;
-    top: 400px;
-    left: 0;
-    background-color: #444;
-    color: white;
-    padding: 10px 12px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    cursor: pointer;
-    z-index: 10001;
-    font-size: 20px;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-  }
-  .hover-tab:hover {
-    background-color: #ffcc00;
-    color: black;
-  }
-  @media (max-width: 768px) {
-  .hover-tab {
-    display: block;
-    top: 20px; /* 可調整位置避免跟其他元素重疊 */
-  }
-}
+    .hover-sidebar a:hover {
+      background-color: #555;
+      color: #ffcc00;
+    }
+
+    .hover-sidebar.open {
+      left: 0;
+    }
+
+    .hover-tab {
+      position: fixed;
+      background-color: #444;
+      color: white;
+      padding: 10px 12px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      cursor: pointer;
+      z-index: 10000;
+      font-size: 20px;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+      animation: shake 1s ease-in-out 2s 2;
+    }
+
+    .hover-tab:hover {
+      background-color: #ffcc00;
+      color: black;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(5px); }
+      50% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+ 
+    @media (min-width: 769px) {
+    .hover-tab {
+      top: 350px;     /* 桌機版距離上方的位置，可自行調整 */
+      left: 0px;     /* 距離左側，可依需要改 */
+    }
+      }
+    @media (max-width: 768px) {
+    .nav-left {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .nav-left a {
+     margin: 0;
+     padding: 10px 20px;
+     font-size: 16px;
+     width: 80%;
+     text-align: center;
+     border-radius: 12px;
+      }
+
+    .hover-tab {
+    top: 350px;   /* ✅ 手機版往下移，不遮住 header nav */
+    left: 0px;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -199,20 +238,21 @@
   </div>
 
 <!-- Fancybox JS -->
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox.umd.js"></script>
-<script>
-  (function () {
-    // ☰ 側邊欄展開/收合
-    const hoverTab = document.querySelector('.hover-tab');
-    const sidebar = document.querySelector('.hover-sidebar');
-    if (hoverTab && sidebar) {
-      hoverTab.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
-    }
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
-    // 檢查 Fancybox 是否有載入
-    if (typeof Fancybox !== 'undefined') {
+<script>
+  // ☰ 側邊欄展開/收合
+  const hoverTab = document.querySelector('.hover-tab');
+  const sidebar = document.querySelector('.hover-sidebar');
+  if (hoverTab && sidebar) {
+    hoverTab.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  }
+
+  // 等待 DOM 完全載入後執行 Fancybox
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.Fancybox) {
       Fancybox.bind("[data-fancybox='transcripts']", {
         Thumbs: false,
         Toolbar: ['close']
@@ -220,7 +260,7 @@
     } else {
       console.warn("Fancybox 未正確載入");
     }
-  })();
+  });
 </script>
 </body>
 </html>
