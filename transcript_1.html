@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
   <title>自傳頁面</title>
   <style>
 
@@ -118,10 +119,10 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-.hover-sidebar a:hover {
+  .hover-sidebar a:hover {
     background-color: #555;
     color: #ffcc00; /* 滑鼠移過去時變亮黃 */
-}
+  }
   .hover-sidebar.open {
     left: 0;
   }
@@ -175,6 +176,13 @@
     border-radius: 12px;
   }
 }
+.transcript-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 30px;
+}
 
   </style>
 </head>
@@ -202,20 +210,33 @@
       </nav>
   </header>
 
-  <div class="content">
-    <p>個人自傳：</p>
-    
+  <div class="content"> 
     <!-- 顯示自傳圖片 -->
-    <a href="images/autobiography.png" data-fancybox="autobio" data-caption="我的自傳">
+    <div class="transcript-gallery">
+      <h2>我的自傳 🔽</h2>
+      <a data-fancybox="autobio" href="images/autobiography.png" data-caption="我的自傳">
         <img class="autobio-img" src="images/autobiography.png" alt="我的自傳" />
       </a>
-
+    </div>
+  
     <p>
       <a class="btn-back" href="index.html">← 回到首頁</a>
     </p>
   </div>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.Fancybox) {
+        Fancybox.bind("[data-fancybox='autobio']", {
+          Thumbs: false,
+          Toolbar: ['close']
+        });
+      } else {
+        console.warn("Fancybox 未正確載入");
+      }
+    });
+  </script>
 <script>
   // 點擊 ☰ 展開/收合側邊欄
   const hoverTab = document.querySelector('.hover-tab');
@@ -227,4 +248,7 @@
 });
 </script>
 </body>
+<footer style="text-align:center; padding: 20px; font-size: 14px; color: #aaa;">
+  © 2025 JHOU,JIA-DE. All rights reserved.
+</footer>
 </html>
