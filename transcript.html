@@ -224,13 +224,24 @@
 
   <div class="container">
     <div class="transcript-gallery">
-      <h2>研究所歷年成績單🔽</h2>
-      <a data-fancybox="transcripts" href="images/Graduate_School_Transcript.jpg" data-caption="研究所歷年成績單">
-        <img src="images/Graduate_School_Transcript.jpg" alt="研究所歷年成績單" />
+      <h2>研究所歷年成績單 🔽</h2>
+    
+      <!-- 研究所成績單：顯示1張，其他隱藏 -->
+      <a data-fancybox="grad-group" href="images/Graduate_School_Transcript_page1.jpg" data-caption="研究所歷年成績單 - 第1頁">
+        <img class="autobio-img" src="images/Graduate_School_Transcript_page1.jpg" alt="研究所歷年成績單 第1頁" />
       </a>
-      <h2>大學歷年成績單(待更)🔽</h2>
-      <a data-fancybox="transcripts" href="images/college_transcript.jpg" data-caption="大學歷年成績單">
-        <img src="images/college_transcript.jpg" alt="大學歷年成績單" />
+      <a data-fancybox="grad-group" href="images/Graduate_School_Transcript_Proof of ranking_page2.jpg" data-caption="研究所歷年成績單 - 第2頁" style="display: none;">
+        <img src="images/Graduate_School_Transcript_Proof of ranking_page2.jpg" alt="研究所歷年成績單 第2頁" />
+      </a>
+  
+
+      <h2>大學歷年成績單 🔽</h2>
+      <!-- 大學成績單：顯示1張，其他隱藏 -->
+      <a data-fancybox="college-group" href="images/college_transcript_page1.jpg" data-caption="大學歷年成績單 - 第1頁">
+        <img class="autobio-img" src="images/college_transcript_page1.jpg" alt="大學歷年成績單 第1頁" />
+      </a>
+      <a data-fancybox="college-group" href="images/college_transcript_Proof of ranking_page2.jpg" data-caption="大學歷年成績單 - 第2頁" style="display: none;">
+        <img src="images/college_transcript_Proof of ranking_page2.jpg" alt="大學歷年成績單 第2頁" />
       </a>
     </div>
 
@@ -250,12 +261,25 @@
     });
   }
 
-  // 等待 DOM 完全載入後執行 Fancybox
+  // Fancybox 圖片瀏覽設定
   window.addEventListener('DOMContentLoaded', () => {
     if (window.Fancybox) {
-      Fancybox.bind("[data-fancybox='transcripts']", {
+      // 研究所組
+      Fancybox.bind("[data-fancybox='grad-group']", {
         Thumbs: false,
-        Toolbar: ['close']
+        Toolbar: ['close'],
+        Image: { zoom: false },
+        animated: true,
+        dragToClose: false
+      });
+
+      // 大學組
+      Fancybox.bind("[data-fancybox='college-group']", {
+        Thumbs: false,
+        Toolbar: ['close'],
+        Image: { zoom: false },
+        animated: true,
+        dragToClose: false
       });
     } else {
       console.warn("Fancybox 未正確載入");
@@ -263,4 +287,7 @@
   });
 </script>
 </body>
+<footer style="text-align:center; padding: 20px; font-size: 14px; color: #aaa;">
+  © 2025 JHOU,JIA-DE. All rights reserved.
+</footer>
 </html>
