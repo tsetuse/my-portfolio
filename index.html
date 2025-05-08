@@ -711,6 +711,49 @@
       sidebar.classList.toggle('open');
 
   });
+
+    // 🧲 拖曳功能（支援滑鼠 + 觸控）
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    function startDrag(x, y) {
+      isDragging = true;
+    const rect = hoverTab.getBoundingClientRect();
+      offsetX = x - rect.left;
+      offsetY = y - rect.top;
+    hoverTab.style.transition = "none";
+    }
+
+    function onDrag(x, y) {
+      if (isDragging) {
+    hoverTab.style.left = `${x - offsetX}px`;
+    hoverTab.style.top = `${y - offsetY}px`;
+  }
+    }
+
+    function stopDrag() {
+      isDragging = false;
+    hoverTab.style.transition = "";
+    }
+
+    // 🖱️ 滑鼠事件
+    hoverTab.addEventListener('mousedown', (e) => startDrag(e.clientX, e.clientY));
+      document.addEventListener('mousemove', (e) => onDrag(e.clientX, e.clientY));
+      document.addEventListener('mouseup', stopDrag);
+
+    // 📱 觸控事件
+    hoverTab.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+    startDrag(touch.clientX, touch.clientY);
+      }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      onDrag(touch.clientX, touch.clientY);
+      }, { passive: false });
+
+    document.addEventListener('touchend', stopDrag);
   </script>
   
 </body>
