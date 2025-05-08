@@ -371,8 +371,26 @@
   .nav-left {
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+    margin-top: 20px;
   }
+
+  .nav-left a {
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 80%;
+    text-align: center;
+    border-radius: 12px;
+  }
+
+
+  .nav-left a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffcc00;
+    transform: scale(1.05);
+  }
+
 
   #darkModeToggle {
     position: static;
@@ -394,17 +412,27 @@
     border-radius: 50px;
     font-size: 14px;
     z-index: 9999;
-  }
+    }
 
   .dark-mode #darkModeToggle {
     background-color: rgba(255, 255, 255, 0.2);
     color: #ffcc00;
-  }
+    }
 
   .gallery-left {
     grid-template-columns: 1fr;
+    }
+  .gallery-left .card {
+    max-width: 100%;
+    width: 100%;
+    margin: 0; /* 移除 auto 導致居中不齊 */
+    }
+
+  .card img {
+    width: 100%; /* 圖片也填滿卡片 */
+    }
   }
-}
+
   .hover-sidebar {
     position: fixed;
     top: 450px;
@@ -754,7 +782,7 @@
         e.preventDefault(); // 加這行 ✅ 防止畫面跟著滑動
       }, { passive: false }); // ← 這個也很重要，讓 preventDefault 有效
 
-    document.addEventListener('touchend', stopDrag);
+      document.addEventListener('touchend', stopDrag);
   </script>
   
 </body>
