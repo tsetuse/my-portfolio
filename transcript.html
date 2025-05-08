@@ -321,13 +321,14 @@
     startDrag(touch.clientX, touch.clientY);
       }, { passive: false });
 
-    document.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const touch = e.touches[0];
-      onDrag(touch.clientX, touch.clientY);
-      }, { passive: false });
+      document.addEventListener('touchmove', (e) => {
+       if (!isDragging) return;
+        const touch = e.touches[0];
+        onDrag(touch.clientX, touch.clientY);
+        e.preventDefault(); // 加這行 ✅ 防止畫面跟著滑動
+      }, { passive: false }); // ← 這個也很重要，讓 preventDefault 有效
 
-    document.addEventListener('touchend', stopDrag);
+      document.addEventListener('touchend', stopDrag);
   </script>
 </script>
 </body>
